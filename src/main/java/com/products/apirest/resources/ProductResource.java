@@ -21,7 +21,7 @@ public class ProductResource {
         return productRepository.findAll();
     }
 
-    @GetMapping("/products/{id}")
+    @GetMapping("/product/{id}")
     public Product singleProduct(@PathVariable(value="id") long id){
         return productRepository.findById(id);
     }
@@ -30,5 +30,16 @@ public class ProductResource {
     public Product saveProduct(@RequestBody Product product){
         return productRepository.save(product);
     }
+
+    @DeleteMapping("/product")
+    public void deleteProduct(@RequestBody Product product){
+        productRepository.delete(product);
+    }
+
+    @PutMapping("/product")
+    public Product updateProduct(@RequestBody Product product){
+        return productRepository.save(product);
+    }
+
 
 }
